@@ -29,6 +29,7 @@ Create a simple Javascript array with objects, and add parameters according to t
 
     var tableView = TiTable.createTableView({
         backgroundColor: 'white',
+        type: TiTable.SUBTITLE,
         data: data
     });
 
