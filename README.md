@@ -50,7 +50,7 @@ The idea is to expose the most commonly used types of tableviews and make the ta
 I'd like to see a lot more table view row types for both platforms, iOS and Android. The API needs to be as simple as possible: TableView type and array of JS objects to create the data.  
 What ever contribution is made, it _does not_ need to be cross platform, although it would be nice.
 
-## License:
+## MIT License:
 
     Copyright (c) 2013 Pedro Enrique
 
