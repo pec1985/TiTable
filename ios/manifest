@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0
+apiversion: 2
+description: Ti.Table
+author: Pedro Enrique
+license: MIT
+copyright: Copyright (c) 2013 by Pedro Enrique
+
+
+# these should not be edited
+name: table
+moduleid: ti.table
+guid: df86c81b-31f3-4ae7-8417-b4190a58c9f8
+platform: iphone
+minsdk: 2.1.4.GA

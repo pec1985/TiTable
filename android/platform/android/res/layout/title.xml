@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_view"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="beforeDescendants"
+    android:padding="6dp" >
+
+	<ImageView
+	    android:id="@+id/rightImage"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:layout_centerVertical="true"
+	    android:gravity="center"
+	    android:orientation="vertical"
+	    android:maxWidth="20dp"
+	    android:maxHeight="20dp"
+	    android:src="@drawable/chevron_default" />
+
+	<ImageView
+	    android:id="@+id/leftImage"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_centerVertical="true"
+	    android:gravity="center"
+	    android:maxWidth="80dp"
+	    android:maxHeight="80dp"
+	    android:orientation="vertical"
+	 />
+		
+	<TextView
+		android:id="@+id/row_title"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_toLeftOf="@id/rightImage"
+		android:layout_toRightOf="@id/leftImage"
+	    android:layout_centerVertical="true"
+		android:textSize="20dp"
+		android:textStyle="bold" />
+</RelativeLayout>
