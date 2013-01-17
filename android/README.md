@@ -25,11 +25,13 @@ This module, the Android version, exposes two types of tableview row styles and 
 ### Row properties
 - title
 - titleColor
-- subtitle
-- subtitleColor
+- subtitle (TiTable.SUBTITLE type)
+- subtitleColor (TiTable.SUBTITLE type)
 - hasChild
 - rightImage (must be local)
 - leftImage (must be local)
+- backgroundImage (must be local)
+- backgroundColor
 
 
 ## Layout gotcha
