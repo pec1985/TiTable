@@ -36,12 +36,14 @@ import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class AdapterSubtitle extends MainAdapter 
 {
 	private class TableViewRow
     {
+		RelativeLayout backgroundView;
     	TextView rowTitle;
         TextView rowSubtitle;
     	ImageView leftImage;
@@ -62,6 +64,7 @@ public class AdapterSubtitle extends MainAdapter
 		if(row == null) {
             row = inflater.inflate(RHelper.getLayout("subtitle"), null);
             holder = new TableViewRow();
+            holder.backgroundView = (RelativeLayout)row.findViewById(RHelper.getId("main_view"));
             holder.rowTitle = (TextView)row.findViewById(RHelper.getId("row_title"));
             holder.rowSubtitle = (TextView)row.findViewById(RHelper.getId("row_subtitle"));
             holder.leftImage = (ImageView)row.findViewById(RHelper.getId("leftImage"));
@@ -97,6 +100,18 @@ public class AdapterSubtitle extends MainAdapter
 			holder.rowSubtitle.setTextColor(TiConvert.toColor(currentDict, TableConstants.PROPERTY_SUBTITLE_COLOR));
 		} else {
 			holder.rowSubtitle.setTextColor(Color.LTGRAY);
+		}
+
+		if(currentDict.containsKey(TableConstants.PROPERTY_BACKGROUND_COLOR)) {
+			holder.backgroundView.setBackgroundDrawable(null);
+			holder.backgroundView.setBackgroundColor(TiConvert.toColor(currentDict, TableConstants.PROPERTY_BACKGROUND_COLOR));
+		} else if(currentDict.containsKey(TableConstants.PROPERTY_BACKGROUND_IMAGE)) {
+			TiDrawableReference source = TableModule.makeImageSource(proxy, currentDict.get(TableConstants.PROPERTY_BACKGROUND_IMAGE));
+			holder.backgroundView.setBackgroundDrawable(source.getDrawable());
+			holder.backgroundView.setBackgroundColor(Color.TRANSPARENT);
+		} else {
+			holder.backgroundView.setBackgroundColor(Color.TRANSPARENT);
+			holder.backgroundView.setBackgroundDrawable(null);
 		}
 		
 		if(currentDict.containsKey(TableConstants.PROPERTY_RIGHT_IMAGE)) {

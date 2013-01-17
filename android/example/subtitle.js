@@ -42,7 +42,8 @@ module.exports = function(){
 			titleColor: "#"+((1<<24)*Math.random()|0).toString(16),
 			leftImage: 'KS_nav_ui.png',
 			subtitle:'H!',
-			hasChild:false
+			hasChild:false,
+			backgroundImage: 'KS_nav_ui.png'
 		});
 	}
 
@@ -53,7 +54,8 @@ module.exports = function(){
 			leftImage: 'KS_nav_ui.png',
 			subtitle:'H!',
 			subtitleColor: 'green',
-			hasChild:true
+			hasChild:true,
+			backgroundColor: 'red'
 		});
 	}
 

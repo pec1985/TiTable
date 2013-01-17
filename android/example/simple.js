@@ -41,7 +41,8 @@ module.exports = function(){
 			title: 'Hello World #'+i,
 			color: "#"+((1<<24)*Math.random()|0).toString(16),
 			leftImage: 'KS_nav_ui.png',
-			hasChild:false
+			hasChild:false,
+			backgroundImage: 'KS_nav_ui.png'
 		});
 	}
 
@@ -50,6 +51,7 @@ module.exports = function(){
 			title: 'Hello World #'+i,
 			titleColor: "#"+((1<<24)*Math.random()|0).toString(16),
 			leftImage: 'KS_nav_ui.png',
+			backgroundColor: 'red',
 			hasChild:true
 		});
 	}

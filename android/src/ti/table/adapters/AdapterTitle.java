@@ -36,13 +36,15 @@ import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class AdapterTitle extends MainAdapter 
 {
 	private class TableViewRow
     {
-    	TextView rowTitle;
+		RelativeLayout backgroundView;
+		TextView rowTitle;
     	ImageView leftImage;
     	ImageView rightImage;
     }
@@ -62,6 +64,7 @@ public class AdapterTitle extends MainAdapter
 		if(row == null) {
             row = inflater.inflate(RHelper.getLayout("title"), null);
             holder = new TableViewRow();
+            holder.backgroundView = (RelativeLayout)row.findViewById(RHelper.getId("main_view"));
             holder.rowTitle = (TextView)row.findViewById(RHelper.getId("row_title"));
             holder.leftImage = (ImageView)row.findViewById(RHelper.getId("leftImage"));
             holder.rightImage = (ImageView)row.findViewById(RHelper.getId("rightImage"));
@@ -86,6 +89,17 @@ public class AdapterTitle extends MainAdapter
 			holder.rowTitle.setTextColor(Color.DKGRAY);
 		}
 
+		if(currentDict.containsKey(TableConstants.PROPERTY_BACKGROUND_COLOR)) {
+			holder.backgroundView.setBackgroundDrawable(null);
+			holder.backgroundView.setBackgroundColor(TiConvert.toColor(currentDict, TableConstants.PROPERTY_BACKGROUND_COLOR));
+		} else if(currentDict.containsKey(TableConstants.PROPERTY_BACKGROUND_IMAGE)) {
+			TiDrawableReference source = TableModule.makeImageSource(proxy, currentDict.get(TableConstants.PROPERTY_BACKGROUND_IMAGE));
+			holder.backgroundView.setBackgroundDrawable(source.getDrawable());
+			holder.backgroundView.setBackgroundColor(Color.TRANSPARENT);
+		} else {
+			holder.backgroundView.setBackgroundColor(Color.TRANSPARENT);
+			holder.backgroundView.setBackgroundDrawable(null);
+		}
 
 		if(currentDict.containsKey(TableConstants.PROPERTY_RIGHT_IMAGE)) {
 			TiDrawableReference source = TableModule.makeImageSource(proxy, currentDict.get(TableConstants.PROPERTY_RIGHT_IMAGE));
