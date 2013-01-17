@@ -107,8 +107,8 @@ public class AdapterSubtitle extends MainAdapter
 			holder.backgroundView.setBackgroundColor(TiConvert.toColor(currentDict, TableConstants.PROPERTY_BACKGROUND_COLOR));
 		} else if(currentDict.containsKey(TableConstants.PROPERTY_BACKGROUND_IMAGE)) {
 			TiDrawableReference source = TableModule.makeImageSource(proxy, currentDict.get(TableConstants.PROPERTY_BACKGROUND_IMAGE));
-			holder.backgroundView.setBackgroundDrawable(source.getDrawable());
 			holder.backgroundView.setBackgroundColor(Color.TRANSPARENT);
+			holder.backgroundView.setBackgroundDrawable(source.getDrawable());
 		} else {
 			holder.backgroundView.setBackgroundColor(Color.TRANSPARENT);
 			holder.backgroundView.setBackgroundDrawable(null);
